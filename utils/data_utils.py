@@ -1,8 +1,7 @@
-import os, sys, mygene, matplotlib
+import os, sys, matplotlib
 import pandas as pd
 import numpy as np
 from tqdm import tqdm
-from Ensembl_converter import EnsemblConverter
 
 class LoadTransData:
 	"""docstring for ClassName"""
