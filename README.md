@@ -14,14 +14,6 @@ $ trainer = RUN.train(,
     net_args = net_args,
     out_dir = out_dir)
 ```
-**Parameters:**
-* train_list: the list of training transcriptomic profiles, unwanted variations, biological signals, data ids, and onehot representations of unwanted variations.
-* val_list: the list of validation transcriptomic profiles, unwanted variations, biological signals, data ids, and onehot representations of unwanted variations.
-* test_list: the list of testing transcriptomic profiles, unwanted variations, biological signals, data ids, and onehot representations of unwanted variations.
-* label2unw: the dictionary which maps unwanted labels (e.g., 0, 1 ...) to unwanted variations (e.g., batch1, batch2 ...).
-* label2wnt: the dictionary which maps biological labels (e.g., 0, 1 ...) to biological annotations (e.g., donor1, donor2 ...).
-* net_args: the parameters to construct DeepAdapter.
-* out_dir: the out directory for saved models and logged losses.
 
 # Get started
 ## Download the datasets
@@ -45,6 +37,10 @@ After downloading, place the datasets in the `data/` directory located in the sa
 $ # Clone this repository to your local computer
 $ git clone https://github.com/mjDelta/DeepAdapter.git
 $ cd DeepAdapter
+$ # create a new conda environment
+$ conda create -n deepAdapter python=3.9
+$ # activate environment
+$ conda activate deepAdapter
 $ # Install dependencies
 $ pip install -r requirements.txt
 $ # Launch jupyter notebook
