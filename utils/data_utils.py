@@ -9,15 +9,15 @@ class LoadTransData:
 	def __init__(self):
 		super(LoadTransData, self).__init__()
 
-		self.quartet_dir = "../data/batch_data/"
-		self.lincs_dir = "../data/batch_data/LDS-1593/Data"
-		self.platform_dir = "../data/cleaned_unpaired"
-		self.purity_dir = "../data/cleaned_tumor_cell"
+		self.quartet_dir = "data/batch_data/"
+		self.lincs_dir = "data/batch_data/LDS-1593/Data"
+		self.platform_dir = "data/platform_data"
+		self.purity_dir = "data/purity_data"
 
-		self.platform_bioSig_path = "../data/cleaned_unpaired/cl_ids.csv"
-		self.purity_bioSig_path = "../data/Celligner_info.csv"
+		self.platform_bioSig_path = "data/platform_data/cl_ids.csv"
+		self.purity_bioSig_path = "data/purity_data/Celligner_info.csv"
 
-		self.ensg_path = "../data/batch_data/ensg2symbol.csv"
+		self.ensg_path = "data/batch_data/ensg2symbol.csv"
 
 	def load_ensg2symbol(self):
 		ensg_df = pd.read_csv(self.ensg_path)
