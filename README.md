@@ -80,6 +80,7 @@ $ # Launch jupyter notebook
 $ jupyter notebook
 ```
 * Step 2: double-click to open tutorials:
-    * `$DA-Batch-Tutorial.ipynb$`: the tutorial of re-training DeepAdapter using the example dataset;
-    * `$DA-YourOwnData-Tutorial.ipynb$`: the tutorial of training DeepAdapter using your own dataset.
-  After opening the tutorials, please press Shift-Enter to execute a "cell" in `$.ipynb$`.
+    * `DA-Batch-Tutorial.ipynb`: the tutorial of re-training DeepAdapter using the example dataset;
+    * `DA-YourOwnData-Tutorial.ipynb`: the tutorial of training DeepAdapter using your own dataset.
+
+**After opening the tutorials, please press Shift-Enter to execute a "cell" in `.ipynb`.**
