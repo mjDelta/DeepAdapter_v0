@@ -194,6 +194,15 @@ class LoadTransData:
 		## exclude normalized data
 		data_df = data_df[data_df["Well"] != "Norm"]
 		return data_df
+
+	def load_data(self, expression_path, annotate_path, sample_id = "SampleID", uwn_col = "Unwanted_var", wnt_col = "Biological_sig"):
+		exp_df = pd.read_csv(expression_path)
+		ann_df = pd.read_csv(annotate_path)
+		data_df = exp_df.join(ann_df, how = "inner", on = sample_id)
+		ids = data_df.pop(sample_id).values.squeeze()
+		unwanted_labels = data_df.pop(uwn_col).values.squeeze()
+		wanted_labels = data_df.pop(wnt_col).values.squeeze()
+		return data, ids, unwanted_labels, wanted_labels
 		
 class PrepTransData:
 	"""docstring for PrepTransData"""
