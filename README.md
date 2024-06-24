@@ -16,7 +16,7 @@ $ trainer = RUN.train(,
 ```
 
 # Get started
-## Download the datasets
+## Download the exmaple datasets
 Please download the datasets in [Zenodo](https://zenodo.org/records/10494751).
 These datasets are collected from literatures to demonstrate multiple unwanted variations, including:
 * batch vairations: LINCS-DToxS ([van Hasselt et al. Nature Communications, 2020](https://www.nature.com/articles/s41467-020-18396-7)) and Quartet project ([Yu, Y. et al. Nature Biotechnology, 2023](https://www.nature.com/articles/s41587-023-01867-9)).
@@ -30,8 +30,41 @@ After downloading, place the datasets in the `data/` directory located in the sa
 * purity datasets: `data/purity_data/`
 
 **Putting datasets in the right directory is important for loading the example datasets successfully.**
-    
-## Re-train the models with provided datasets or your own datasets
+
+## The file format of your own dataset
+The input files include $2$ files: 
+* **gene_expression.txt** for gene expression matrix;
+* **unwantedVar_biologicalSig.txt** for annotations of unwanted variations and biological signals.
+
+The example of **gene_expression.txt** is as follows (**Note: every row should be split by commas.**):
+| SampleId | Gene_1 | Gene_2 | Gene_3 | ... | Gene_n-2 | Gene_n-1 | Gene_n |
+|  ----  | ----  | ----  | ----  |  ----  | ----  | ----  | ----  |
+| **1** | x<sub>11</sub> | x<sub>12</sub> | x<sub>13</sub> | ... | x<sub>1(n-2)</sub> | x<sub>1(n-1)</sub> | x<sub>1n</sub> |
+| **2** | x<sub>21</sub> | x<sub>22</sub> | x<sub>23</sub> | ... | x<sub>2(n-2)</sub> | x<sub>2(n-1)</sub> | x<sub>2n</sub> |
+| ... | ... | ... | ... | ... | ... | ... | ... |
+| **m** | x<sub>m1</sub> | x<sub>m2</sub> | x<sub>m3</sub> | ... | x<sub>m(n-2)</sub> | x<sub>m(n-1)</sub> | x<sub>mn</sub> |
+
+The example of **unwantedVar_biologicalSig.txt** is as follows (**Note: every row should be split by commas.**):
+| SampleId | Unwanted_var | Biological_sig |
+|  ----  | ----  | ----  |
+| **1** | unwantedVar<sub>1</sub> | biologicalSig<sub>1</sub> |
+| **2** | unwantedVar<sub>1</sub> | biologicalSig<sub>1</sub> |
+| ... | ... | ... |
+| **m** | unwantedVar<sub>p</sub> | biologicalSig<sub>q</sub> |
+
+Examples of **unwantedVar** and **biologicalSig**:
+* **unwantedVar**:
+    * **batch**: batch1, batch2, ..., batch(n);
+    * **platform**: RNA-seq, microarray;
+    * **purity**: cell lines, tissue;
+    * ...
+* **biologicalSig**:
+    * **cancer types**: lung cancer, kidney cancer, ..., bone cancer;
+    * **lineages**: Lung, kidney, ..., eye;
+    * **donor sources**: donor1, donor2, ..., donor(n);
+    * ...
+
+## Use the tutorials: re-train the models with provided datasets or your own datasets
 * Step 1: please enter the following commands to run DeepAdapter with datasets 
 ```sh
 $ # Clone this repository to your local computer
@@ -46,4 +79,7 @@ $ pip install -r requirements.txt
 $ # Launch jupyter notebook
 $ jupyter notebook
 ```
-* Step 2: double-click to open `$DeepAdapter-Tutorial.ipynb$`. Please press Shift-Enter to execute a "cell" in `$DeepAdapter-Tutorial.ipynb$`.
+* Step 2: double-click to open tutorials:
+    * `$DA-Batch-Tutorial.ipynb$`: the tutorial of re-training DeepAdapter using the example dataset;
+    * `$DA-YourOwnData-Tutorial.ipynb$`: the tutorial of training DeepAdapter using your own dataset.
+  After opening the tutorials, please press Shift-Enter to execute a "cell" in `$.ipynb$`.
