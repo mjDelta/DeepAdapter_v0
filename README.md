@@ -16,6 +16,29 @@ $ trainer = RUN.train(,
 ```
 
 # Get started
+## Re-train DeepAdapter with the provided example datsets or your own dataset
+**Step 1**: download the codes
+```sh
+$ # Clone this repository to your local computer
+$ git clone https://github.com/mjDelta/DeepAdapter.git
+$ cd DeepAdapter
+```
+**Step 2**: install the supported packages
+```sh
+$ # Create a new conda environment
+$ conda create -n DA python=3.9
+$ # Activate environment
+$ conda activate DA
+$ # Install dependencies
+$ pip install -r requirements.txt
+$ # Launch jupyter notebook
+$ jupyter notebook
+```
+**Step 3**: double-click to open tutorials
+* `DA-Example-Tutorial.ipynb`: the tutorial of re-training DeepAdapter using the example dataset;
+* `DA-YourOwnData-Tutorial.ipynb`: the tutorial of training DeepAdapter using your own dataset.
+
+**After opening the tutorials, please press Shift-Enter to execute a "cell" in `.ipynb`.**
 ## Download the exmaple datasets
 Please download the datasets in [Zenodo](https://zenodo.org/records/10494751).
 These datasets are collected from literatures to demonstrate multiple unwanted variations, including:
@@ -64,23 +87,3 @@ Examples of **unwantedVar** and **biologicalSig**:
     * **donor sources**: donor1, donor2, ..., donor(n);
     * ...
 
-## Use the tutorials: re-train the models with provided datasets or your own datasets
-* Step 1: please enter the following commands to run DeepAdapter with datasets 
-```sh
-$ # Clone this repository to your local computer
-$ git clone https://github.com/mjDelta/DeepAdapter.git
-$ cd DeepAdapter
-$ # create a new conda environment
-$ conda create -n deepAdapter python=3.9
-$ # activate environment
-$ conda activate deepAdapter
-$ # Install dependencies
-$ pip install -r requirements.txt
-$ # Launch jupyter notebook
-$ jupyter notebook
-```
-* Step 2: double-click to open tutorials:
-    * `DA-Example-Tutorial.ipynb`: the tutorial of re-training DeepAdapter using the example dataset;
-    * `DA-YourOwnData-Tutorial.ipynb`: the tutorial of training DeepAdapter using your own dataset.
-
-**After opening the tutorials, please press Shift-Enter to execute a "cell" in `.ipynb`.**
