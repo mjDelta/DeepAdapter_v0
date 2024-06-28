@@ -234,11 +234,11 @@ class Trainer(object):
 					best_loss = val_ae
 					print(f"Update model, loss of {val_ae}")
 
-	def test(self):
+	def test(self, dataloader):
 		test_rec_arrs, test_arrs, test_wnt_infs, test_unw_infs = [], [], [], []
 		self.ae.eval()
 		self.fbatch.eval()
-		for data in self.test_loader:
+		for data in dataloader:
 			test_data, test_labels, test_bios, test_ids, test_labels_hot = data
 			test_data_tensor = torch.FloatTensor(test_data).cuda()
 			test_rec_tensor = self.test_on_step(test_data_tensor)
@@ -252,9 +252,9 @@ class Trainer(object):
 		test_unw_infs = np.array(test_unw_infs)
 		return data, normed_data, test_wnt_infs, test_unw_infs
 
-	def evaluate(self, record_path, test_name):
+	def evaluate(self, record_path, test_name, dataloader):
 		print("trainer:  " + self.out_dir)
-		data, normed_data, test_wnt_infs, test_unw_infs = self.test()
+		data, normed_data, test_wnt_infs, test_unw_infs = self.test(dataloader)
 
 		## quantatitive results analysis
 		self._record_res(record_path, "test_name,test_num,align,asw_var,nmi,ari\n")
