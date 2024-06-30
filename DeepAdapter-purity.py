@@ -77,4 +77,4 @@ print(len(train_bios), len(set(train_bios)), len(train_ids), len(set(train_ids))
 trainer.load_trained_ae(os.path.join(out_dir, "ae.tar"))
 
 record_path = os.path.join(out_dir, "res.csv")
-trainer.evaluate(record_path, db_name)
+trainer.evaluate(record_path, db_name, test_loader)
