@@ -45,7 +45,7 @@ train_data, train_labels, train_labels_hot, \
 train_bios, val_bios, test_bios = dis_labels[tot_train_idxs], dis_labels[tot_val_idxs], dis_labels[tot_test_idxs]
 
 ### network parameters setting
-from params import dl_params_purity as DLPARAM
+from params import dl_params as DLPARAM
 net_args = DLPARAM.load_dl_params()
 
 ## initialize models
